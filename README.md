@@ -1,6 +1,6 @@
 
 # FileConverter
-
+THIS PROJECT DOES NOT CONTAIN A INSTALLER IT IS A PORTABLE EXECUTABLE FOR LINUX \
 This project was initially made for converting all kinds of file types to another (videos, images, 3D Models, etc...) 
 
 However since It is too hard to me (Atleast right now) I have only implemented some picture types to the other
