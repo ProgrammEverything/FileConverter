@@ -1,7 +1,7 @@
 
 # FileConverter
 
-This project was initially made for converting all kinds of file types to another (videos, images, 3D Models, etc...) \
+This project was initially made for converting all kinds of file types to another (videos, images, 3D Models, etc...) 
 
 However since It is too hard to me (Atleast right now) I have only implemented some picture types to the other
 
@@ -17,7 +17,7 @@ All documentation will be on my documentation website (You can check that out) \
 So what does this project do? \
 This project has a simple interface allowing you to convert between types of files. 
 
-![Screenshot](https://github.com/ProgrammEverything/FileConverter/blob/master/images/screenshot.png)
+![Screenshot](https://github.com/ProgrammEverything/FileConverter/blob/master/images/screenshot.png) \
 As you can see there is a toolbar at the top and 2 lists \
 The first list is used for inserting files into it \
 The second list is used for the actual conversion \
@@ -50,8 +50,8 @@ If any file encounters errors (ImageMagick must be installed on your computer) \
 A popup will appear stating the information for the error \
 (All technical stuff related to the documentation page) \
 If something goes wrong the following popup will be shown: \
-![Error popup](https://github.com/ProgrammEverything/FileConverter/blob/master/images/screenshot_error.png)
+![Error popup](https://github.com/ProgrammEverything/FileConverter/blob/master/images/screenshot_error.png) \
 It contains information about where it occured what function and etc... \
 After all logging (like error) about the files the following will be shown \
-![Info popup](https://github.com/ProgrammEverything/FileConverter/blob/master/images/screenshot_info.png)
+![Info popup](https://github.com/ProgrammEverything/FileConverter/blob/master/images/screenshot_info.png) \
 Which will tell you what went wrong and all other info. You can sumbit the metadata or the whole error by their respective buttons
