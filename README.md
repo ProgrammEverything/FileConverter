@@ -33,13 +33,13 @@ When you are done you click OK (It will not be added unless you click OK)
 - -  If you don't put any extensions the program will put the default extension for the type for you
 - - The file you choose to save will be in order of adding and It will add a number to the name of each file
  ```
- For example the following structure of files will be saved as such:
+ For example the following structure of files:
 	 Mycat.png
 	 MyOtherCat.png
 	 MyCatCatCatsCat.png
 	 MyOtherCatCatCatCatsOfACatOfCat.png
 If I choose to save it in a folder called "Images"
-and the save file as Cat
+and the save file as Cat and the type Jpeg
 The following files will be made onto Images
 	Cat1.jpg
 	Cat2.jpg
@@ -54,6 +54,6 @@ If something goes wrong the following popup will be shown: \
 It contains information about where it occured what function and etc... \
 After all logging (like error) about the files the following will be shown \
 ![Info popup](https://github.com/ProgrammEverything/FileConverter/blob/master/images/screenshot_info.png) \
-Which will tell you what went wrong and all other info. You can sumbit the metadata or the whole error by their respective buttons \
+Which will tell you what went wrong and all other info. You can copy the metadata or the whole error by their respective buttons \
 The Box in the right of the picture (top right) which says (PNG Format) means all files exported will be exported to type of that Format \
 For example "PNG Format" will be ".png"
