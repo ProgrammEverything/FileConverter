@@ -54,4 +54,6 @@ If something goes wrong the following popup will be shown: \
 It contains information about where it occured what function and etc... \
 After all logging (like error) about the files the following will be shown \
 ![Info popup](https://github.com/ProgrammEverything/FileConverter/blob/master/images/screenshot_info.png) \
-Which will tell you what went wrong and all other info. You can sumbit the metadata or the whole error by their respective buttons
+Which will tell you what went wrong and all other info. You can sumbit the metadata or the whole error by their respective buttons \
+The Box in the right of the picture (top right) which says (PNG Format) means all files exported will be exported to type of that Format \
+For example "PNG Format" will be ".png"
