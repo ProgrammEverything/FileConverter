@@ -59,8 +59,8 @@ The Box in the right of the picture (top right) which says (PNG Format) means al
 For example "PNG Format" will be ".png"
 ## How to build
 To build this program. You need the following dependencies. And all other dependencies relating to it: 
-- ImageMagick (Related to converting images)
-- WxWidgets
+- ImageMagick (For converting images)
+- WxWidgets   (For GUI)
 ### Needed build tools
 - CMake
 - Make or Other build systems (You have to use cmake for that)
