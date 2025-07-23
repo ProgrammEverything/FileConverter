@@ -67,10 +67,10 @@ To build this program. You need the following dependencies. And all other depend
 
 
 Download and extract the project. Or use git for cloning. 
-Run these commands for generating a make file and then building it. (If you don't want to use make. You can configure that from CMake) \
-``
+Run these commands for generating a make file and then building it. (If you don't want to use make. You can configure that from CMake)
+```
 cmake . -B build
-`` \
+```
 Go into the directory build (`cd build`)\
 Run `make` 
 ```
