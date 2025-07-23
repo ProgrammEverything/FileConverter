@@ -65,7 +65,8 @@ To build this program. You need the following dependencies. And all other depend
 ### Needed build tools
 - CMake
 - Make or Other build systems (You have to use cmake for that)
-Download and extract the project. Or use git for cloning. \
+  
+Download and extract the project. Or use git for cloning.
 Run these commands for generating a make file and then building it. (If you don't want to use make. You can configure that from CMake)
 ``
 cmake . -B build
