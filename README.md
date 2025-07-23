@@ -58,7 +58,7 @@ Which will tell you what went wrong and all other info. You can copy the metadat
 The Box in the right of the picture (top right) which says (PNG Format) means all files exported will be exported to type of that Format \
 For example "PNG Format" will be ".png"
 ## How to build
-To build this program. You need the following dependencies. And all other dependencies relating to it: \
+To build this program. You need the following dependencies. And all other dependencies relating to it: 
 - ImageMagick (Related to converting images)
 - X11 (You need to use X11. Can run in Compatibility mode)
 - WxWidgets
