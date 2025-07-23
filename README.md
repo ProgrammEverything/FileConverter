@@ -60,7 +60,6 @@ For example "PNG Format" will be ".png"
 ## How to build
 To build this program. You need the following dependencies. And all other dependencies relating to it: 
 - ImageMagick (Related to converting images)
-- X11 (You need to use X11. Can run in Compatibility mode)
 - WxWidgets
 ### Needed build tools
 - CMake
@@ -71,7 +70,7 @@ Download and extract the project. Or use git for cloning.
 Run these commands for generating a make file and then building it. (If you don't want to use make. You can configure that from CMake) \
 ``
 cmake . -B build
-``
+`` \
 Go into the directory build (`cd build`)\
 Run `make` 
 ```
