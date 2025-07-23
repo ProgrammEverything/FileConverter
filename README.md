@@ -80,3 +80,4 @@ Then a file called `Platformer` will be built. You can execute it by using the f
 ```
 ./Platformer
 ```
+Note: For building in release mode you can use the `-D CMAKE_BUILD_TYPE=Release` argument for cmake and for debug you can use the `-D CMAKE_BUILD_TYPE=Debug` cmake argument.
