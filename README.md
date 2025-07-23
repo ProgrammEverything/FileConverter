@@ -57,3 +57,25 @@ After all logging (like error) about the files the following will be shown \
 Which will tell you what went wrong and all other info. You can copy the metadata or the whole error by their respective buttons \
 The Box in the right of the picture (top right) which says (PNG Format) means all files exported will be exported to type of that Format \
 For example "PNG Format" will be ".png"
+## How to build
+To build this program. You need the following dependencies. And all other dependencies relating to it: \
+- ImageMagick (Related to converting images)
+- X11 (You need to use X11. Can run in Compatibility mode)
+- WxWidgets
+### Needed build tools
+- CMake
+- Make or Other build systems (You have to use cmake for that)
+Download and extract the project. Or use git for cloning. \
+Run these commands for generating a make file and then building it. (If you don't want to use make. You can configure that from CMake)
+``
+cmake . -B build
+``
+Go into the directory build (`cd build`)\
+Run `make` 
+```
+make
+```
+Then a file called `Platformer` will be built. You can execute it by using the following command (In the directory of build):
+```
+./Platformer
+```
