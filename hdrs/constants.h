@@ -4,31 +4,32 @@
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 #include <wx/string.h>
+#include <unordered_map>
 namespace cs{
-    inline const wxArrayString picture_formats =  {
-        "PNG Format",
-        "JPG Format",
-        "Webp Format",
-        "Ascii Format",
-        "Bitmap Format",
-        "SVM(CPP) Format",
-    };
+    // inline const wxArrayString picture_formats =  {
+    //     "PNG Format",
+    //     "JPG Format",
+    //     "Webp Format",
+    //     "Ascii Format",
+    //     "Bitmap Format",
+    //     "SVM(CPP) Format",
+    // };
 
-    inline const wxArrayString movie_formats = {
-        "3GP Format",
-        "ASF Format",
-        "AVI Format",
-        "FLV Format",
-        "MKV Format",
-        "MOV Format",
-        "MP4 Format",
-        "MPEG Format",
-        "MPG Format",
-        "MXF Format",
-        "WEBM Format",
-        "WMV Format"
-    };
-
+    // inline const wxArrayString movie_formats = {
+    //     "3GP Format",
+    //     "ASF Format",
+    //     "AVI Format",
+    //     "FLV Format",
+    //     "MKV Format",
+    //     "MOV Format",
+    //     "MP4 Format",
+    //     "MPEG Format",
+    //     "MPG Format",
+    //     "MXF Format",
+    //     "WEBM Format",
+    //     "WMV Format"
+    // };
+    
     enum TypeFormat : int {
         FORMAT_PNG   = 0x1,
         FORMAT_JPG   = 0x2,
@@ -50,40 +51,56 @@ namespace cs{
         FORMAT_WEBM  = 0x10000,
         FORMAT_WMV   = 0x20000
     };
+    // For image formats
+    inline const std::tuple<const TypeFormat,const wxString&,const wxString&> format_image_desc[] = {
+        {FORMAT_PNG,   ".png",   "PNG FORMAT"},
+        {FORMAT_JPG,   ".jpg",   "JPG FORMAT"},
+        {FORMAT_WBP,   ".webp",  "WEBP FORMAT"},
+        {FORMAT_ASCII, ".asc",   "ASCII FORMAT"},
+        {FORMAT_BMP,   ".bmp",   "BMP FORMAT"},
+        {FORMAT_SVM,   ".svm",   "SVM FORMAT"},
+    };
 
-    inline const wxString GetPictureFormat(TypeFormat format){
-        switch (format){
-            case FORMAT_PNG: return ".png";  
-            case FORMAT_JPG: return ".jpg";   
-            case FORMAT_WBP: return ".webp";  
-            case FORMAT_ASCII: return ".asc"; 
-            case FORMAT_BMP: return ".bmp";   
-            case FORMAT_SVM: return ".svm";   
+    // For video formats
+    inline const std::tuple<const TypeFormat,const wxString&,const wxString&> format_video_desc[] = {
+        {FORMAT_3GP,   ".3gp",   "3GP FORMAT"},
+        {FORMAT_ASF,   ".asf",   "ASF FORMAT"},
+        {FORMAT_AVI,   ".avi",   "AVI FORMAT"},
+        {FORMAT_FLV,   ".flv",   "FLV FORMAT"},
+        {FORMAT_MKV,   ".mkv",   "MKV FORMAT"},
+        {FORMAT_MOV,   ".mov",   "MOV FORMAT"},
+        {FORMAT_MP4,   ".mp4",   "MP4 FORMAT"},
+        {FORMAT_MPEG,  ".mpeg",  "MPEG FORMAT"},
+        {FORMAT_MPG,   ".mpg",   "MPG FORMAT"},
+        {FORMAT_MXF,   ".mxf",   "MXF FORMAT"},
+        {FORMAT_WEBM,  ".webm",  "WEBM FORMAT"},
+        {FORMAT_WMV,   ".wmv",   "WMV FORMAT"},
+    };
+
+    inline const wxString& GetPictureFormat(TypeFormat format){
+        for(auto& item : format_image_desc){
+            if (format == std::get<0>(item)){
+                return std::get<1>(item);
+            }
         }
-        return "";
+        return wxEmptyString;
     }
-    inline const wxString GetMovieFormat(TypeFormat format){
-        switch(format){
-            case FORMAT_3GP:   return ".3gp"; 
-            case FORMAT_ASF:   return ".asf"; 
-            case FORMAT_AVI:   return ".avi"; 
-            case FORMAT_FLV:   return ".flv"; 
-            case FORMAT_MKV:   return ".mkv"; 
-            case FORMAT_MOV:   return ".mov"; 
-            case FORMAT_MP4:   return ".mp4"; 
-            case FORMAT_MPEG:  return ".mpeg";
-            case FORMAT_MPG:   return ".mpg"; 
-            case FORMAT_MXF:   return ".mxf"; 
-            case FORMAT_WEBM:  return ".webm";
-            case FORMAT_WMV:   return ".wmv";
+    inline const wxString& GetMovieFormat(TypeFormat format){
+        for(auto& item : format_video_desc){
+            if (format == std::get<0>(item)){
+                return std::get<1>(item);
+            }
         }
-        return "";
+        return wxEmptyString;
     }
     inline bool isMovieFormat(TypeFormat str){
-        return GetMovieFormat(str) == "";
+        return GetMovieFormat(str) != "";
     }
     inline bool isPictureFormat(TypeFormat str){
-        return GetPictureFormat(str) == "";
+        return GetPictureFormat(str) != "";
+    }
+    inline bool getTypeByExt(const wxString& ext){
+
     }
     enum Flags {
 
