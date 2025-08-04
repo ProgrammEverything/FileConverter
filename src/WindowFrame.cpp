@@ -34,7 +34,7 @@ bool WindowFrame::SetupWidgets()
         m_panel2 = new wxPanel(m_splitter);
         m_splitter->SplitHorizontally(m_panel1, m_panel2, 0);  // Horizontal split
         m_toolbar = new wxToolBar(m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTB_TOP | wxTB_HORZ_TEXT );
-        m_toolbar_choice = new wxChoice(m_toolbar, ID_TYPE, wxDefaultPosition, wxDefaultSize, cs::picture_formats);
+        m_toolbar_choice = new wxChoice(m_toolbar, ID_TYPE, wxDefaultPosition, wxDefaultSize, (const wxString *) nullptr);
         m_toolbar_choice->Select(0); // Select the first item. By default it doesn't (Atleast in gtk)
         m_toolbar_cancel = m_toolbar->AddTool(ID_CANCEL, "Cancel", wxArtProvider::GetBitmap(wxART_DELETE), "Cancel the selections");
         m_toolbar_import = m_toolbar->AddTool(ID_IMPORT, "Import files", wxArtProvider::GetBitmap(wxART_FILE_OPEN), "Import file(s)");
@@ -148,7 +148,12 @@ void WindowFrame::TOOLBAR_IMPORT_FILES(wxCommandEvent &evt)
         wxArrayString values;
         file_dialog->GetPaths(values);
         for (const wxString ref : values){
-            if 
+            if (cs::GetFormatByExtImage(ref) != cs::EMPTY){
+                isMovie=true;
+            } else
+            {
+                isMovie=false;
+            }
         }
         m_panel1_listbox->Append(values);
     }
