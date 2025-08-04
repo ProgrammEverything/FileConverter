@@ -164,7 +164,7 @@ void WindowFrame::TOOLBAR_EXPORT(wxCommandEvent &evt)
         wxLogError("No items are selected");
         return;
     }
-    int picture_format_convert = pow(2, m_toolbar_choice->GetSelection()); // PictureFormat is 2**n 
+    int convert_value = pow(2, m_toolbar_choice->GetSelection()); // PictureFormat is 2**n 
     /*
     PictureFormat is a bitflag meaning each number is starting from 0 to the power of two
     0x01 = 1
@@ -174,13 +174,17 @@ void WindowFrame::TOOLBAR_EXPORT(wxCommandEvent &evt)
     0x10 = 16
     ...
     */
-    cs::PictureFormat format = static_cast<cs::PictureFormat>(picture_format_convert);
+    cs::TypeFormat format = static_cast<cs::TypeFormat>(convert_value);
     wxString log; // Log!
     wxFileDialog* file = new wxFileDialog(this, "Where to save the file(s)?", wxEmptyString, "Unititled" + GetFormatString(format), wxFileSelectorDefaultWildcardStr, wxFD_SAVE);
     if (file->ShowModal() != wxID_CANCEL){
         for (unsigned int x=0; x < m_panel2_listbox->GetCount() ; ++x){
             wxString path = ModifyPath(file->GetPath(), cs::GetFormatString(format), wxString::Format("%u", x));
-            bool result = converter.convert_to(m_panel2_listbox->GetString(x), path , format);
+            bool result;
+            if (isMovie)
+                result = converter.convert_to(cs::MovieString{m_panel2_listbox->GetString(x), path} , format);
+            else
+                result = converter.convert_to(cs::PictureString{m_panel2_listbox->GetString(x), path} , format);
             log += wxString::Format("DONE %u RESULT : %s FILEPATH : %s\n", x+1, result? "TRUE" : "FALSE", path); // Logging
         }
         wxLogInfo(wxString::Format("Execution data. Log:\n%s", log));
@@ -209,8 +213,6 @@ void WindowFrame::TOOLBAR_SELECT_ALL(wxCommandEvent &evt) // TODO: Change this d
 const wxString WindowFrame::ModifyPath(const wxString str, const wxString ext, const wxString add_name)
 {
     wxFileName file(str);
-    if (file.GetExt().IsEmpty())
-        file.SetExt("mp4");
     file.SetName(file.GetName() + add_name);
     return file.GetFullPath();
 }

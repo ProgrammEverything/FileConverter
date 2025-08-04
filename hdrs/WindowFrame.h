@@ -51,4 +51,5 @@ private:
     wxToolBarToolBase* m_toolbar_select_all;
     wxChoice* m_toolbar_choice;
     wxSplitterWindow* m_splitter;
+    bool isMovie=false;
 };

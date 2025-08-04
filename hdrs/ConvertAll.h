@@ -8,7 +8,8 @@ public:
     ConvertAll() = default;
     ConvertAll(cs::Flags flags);
 
-    bool convert_to(const char* from, const char* to, cs::PictureFormat format);
+    bool convert_to(cs::PictureString str, cs::TypeFormat format);
+    bool convert_to(cs::MovieString  str, cs::TypeFormat format);
 
 private:
     cs::Flags m_flags = (cs::Flags)0;
