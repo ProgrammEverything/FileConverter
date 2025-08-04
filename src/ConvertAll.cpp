@@ -29,7 +29,7 @@ bool ConvertAll::convert_to(cs::PictureString str, cs::TypeFormat format)
 
 bool ConvertAll::convert_to(cs::MovieString str, cs::TypeFormat format)
 {
-    wxString cmd = wxString::Format("ffmpeg -y -i \"%s\" -c copy \"%s\"", str.from, str.to + cs::GetFormatString(format));
+    wxString cmd = wxString::Format("ffmpeg -y -i \"%s\" -c copy \"%s\"", str.from, str.to + cs::GetPictureFormat(format));
     int ret = std::system(cmd.c_str());
     return ret == 0;
 }

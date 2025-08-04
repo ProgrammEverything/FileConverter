@@ -111,6 +111,8 @@ bool WindowFrame::SetupBinding()
     return true;
 }
 
+
+
 void WindowFrame::TOOLBAR_CANCEL(wxCommandEvent &evt) // TODO: Change this disgusting If statement
 {
     wxArrayInt array;
@@ -142,8 +144,12 @@ void WindowFrame::TOOLBAR_IMPORT_FILES(wxCommandEvent &evt)
         wxFD_MULTIPLE | wxFD_FILE_MUST_EXIST
     );
     if (file_dialog->ShowModal() != wxID_CANCEL){
+        
         wxArrayString values;
         file_dialog->GetPaths(values);
+        for (const wxString ref : values){
+            if 
+        }
         m_panel1_listbox->Append(values);
     }
 }
@@ -176,10 +182,10 @@ void WindowFrame::TOOLBAR_EXPORT(wxCommandEvent &evt)
     */
     cs::TypeFormat format = static_cast<cs::TypeFormat>(convert_value);
     wxString log; // Log!
-    wxFileDialog* file = new wxFileDialog(this, "Where to save the file(s)?", wxEmptyString, "Unititled" + GetFormatString(format), wxFileSelectorDefaultWildcardStr, wxFD_SAVE);
+    wxFileDialog* file = new wxFileDialog(this, "Where to save the file(s)?", wxEmptyString, "Untitled", wxFileSelectorDefaultWildcardStr, wxFD_SAVE);
     if (file->ShowModal() != wxID_CANCEL){
         for (unsigned int x=0; x < m_panel2_listbox->GetCount() ; ++x){
-            wxString path = ModifyPath(file->GetPath(), cs::GetFormatString(format), wxString::Format("%u", x));
+            wxString path = ModifyPath(file->GetPath(), isMovie? cs::GetMovieFormat(format) : cs::GetPictureFormat(format), wxString::Format("%u", x));
             bool result;
             if (isMovie)
                 result = converter.convert_to(cs::MovieString{m_panel2_listbox->GetString(x), path} , format);
@@ -217,3 +223,8 @@ const wxString WindowFrame::ModifyPath(const wxString str, const wxString ext, c
     return file.GetFullPath();
 }
 
+const wxString WindowFrame::GetExtentsion(const wxString str)
+{
+    wxFileName file(str);
+    return file.GetExt();
+}

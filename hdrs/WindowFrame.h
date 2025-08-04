@@ -23,6 +23,7 @@ public:
     bool SetupBinding();
     
 public:
+
     void TOOLBAR_CANCEL(wxCommandEvent& evt);
     void TOOLBAR_IMPORT_FILES(wxCommandEvent& evt);
     void TOOLBAR_SAVE_EXPORT(wxCommandEvent& evt);
@@ -30,7 +31,8 @@ public:
     void TOOLBAR_SELECT_ALL(wxCommandEvent& evt);
     // Some helper functions
 public:
-    const wxString ModifyPath(const wxString str, const wxString ext, const wxString add_name);
+    static const wxString ModifyPath(const wxString str, const wxString ext, const wxString add_name);
+    static const wxString GetExtentsion(const wxString str);
 private:
     ConvertAll converter;
     ///////////////////

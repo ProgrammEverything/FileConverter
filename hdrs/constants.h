@@ -51,28 +51,39 @@ namespace cs{
         FORMAT_WMV   = 0x20000
     };
 
-    inline const wxString GetFormatString(TypeFormat format){
+    inline const wxString GetPictureFormat(TypeFormat format){
         switch (format){
-            case FORMAT_PNG: return ".png";   break;
-            case FORMAT_JPG: return ".jpg";   break;
-            case FORMAT_WBP: return ".webp";  break;
-            case FORMAT_ASCII: return ".asc"; break;
-            case FORMAT_BMP: return ".bmp";   break;
-            case FORMAT_SVM: return ".svm";   break;
-            case FORMAT_3GP:   return ".3gp"; break;
-            case FORMAT_ASF:   return ".asf"; break;
-            case FORMAT_AVI:   return ".avi"; break;
-            case FORMAT_FLV:   return ".flv"; break;
-            case FORMAT_MKV:   return ".mkv"; break;
-            case FORMAT_MOV:   return ".mov"; break;
-            case FORMAT_MP4:   return ".mp4"; break;
-            case FORMAT_MPEG:  return ".mpeg";break;
-            case FORMAT_MPG:   return ".mpg"; break;
-            case FORMAT_MXF:   return ".mxf"; break;
-            case FORMAT_WEBM:  return ".webm";break;
-            case FORMAT_WMV:   return ".wmv"; break;
+            case FORMAT_PNG: return ".png";  
+            case FORMAT_JPG: return ".jpg";   
+            case FORMAT_WBP: return ".webp";  
+            case FORMAT_ASCII: return ".asc"; 
+            case FORMAT_BMP: return ".bmp";   
+            case FORMAT_SVM: return ".svm";   
         }
         return "";
+    }
+    inline const wxString GetMovieFormat(TypeFormat format){
+        switch(format){
+            case FORMAT_3GP:   return ".3gp"; 
+            case FORMAT_ASF:   return ".asf"; 
+            case FORMAT_AVI:   return ".avi"; 
+            case FORMAT_FLV:   return ".flv"; 
+            case FORMAT_MKV:   return ".mkv"; 
+            case FORMAT_MOV:   return ".mov"; 
+            case FORMAT_MP4:   return ".mp4"; 
+            case FORMAT_MPEG:  return ".mpeg";
+            case FORMAT_MPG:   return ".mpg"; 
+            case FORMAT_MXF:   return ".mxf"; 
+            case FORMAT_WEBM:  return ".webm";
+            case FORMAT_WMV:   return ".wmv";
+        }
+        return "";
+    }
+    inline bool isMovieFormat(TypeFormat str){
+        return GetMovieFormat(str) == "";
+    }
+    inline bool isPictureFormat(TypeFormat str){
+        return GetPictureFormat(str) == "";
     }
     enum Flags {
 
