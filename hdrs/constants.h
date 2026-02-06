@@ -1,8 +1,6 @@
 #pragma once
 #include <string_view>
 #include <array>
-#include <libavcodec/avcodec.h>
-#include <libavformat/avformat.h>
 #include <wx/string.h>
 namespace cs{
     inline const wxArrayString picture_formats =  {
